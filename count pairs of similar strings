@@ -1,0 +1,11 @@
+class Solution:
+    def similarPairs(self, words):
+        counter = defaultdict(int)
+        result = 0
+        
+        for word in words:
+            key = ''.join(sorted(set(word)))
+            result += counter[key]
+            counter[key] += 1
+            
+        return result
