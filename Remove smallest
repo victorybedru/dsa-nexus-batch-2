@@ -1,0 +1,12 @@
+inputNum= int(input())
+for i in range(inputNum):
+    sz= int(input())
+    inputList= list(map(int, input().split()))
+    inputList.sort()
+    possible= True
+    for i in range(sz-1):
+        if inputList[i+1]-inputList[i] >1:
+            possible= False
+            break
+        
+    print("YES" if possible else "NO")
