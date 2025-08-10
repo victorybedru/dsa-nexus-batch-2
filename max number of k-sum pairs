@@ -1,0 +1,17 @@
+class Solution(object):
+    def maxOperations(self, nums, k):
+        nums.sort()
+        total=0
+        left=0
+        right= len(nums)-1
+        while left<right:
+            sums= nums[left]+ nums[right]
+            if sums==k:
+                total+=1
+                left+=1
+                right-=1
+            elif sums>k:
+                right-=1
+            else:
+                left+=1
+        return total
