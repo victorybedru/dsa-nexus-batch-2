@@ -1,0 +1,17 @@
+class Solution:
+    def findAnagrams(self, s: str, p: str):
+        res = []
+        len_p = len(p)
+        count_p = Counter(p)
+        window = Counter()
+
+        for i in range(len(s)):
+            window[s[i]] += 1
+            if i >= len_p:
+                if window[s[i - len_p]] == 1:
+                    del window[s[i - len_p]]
+                else:
+                    window[s[i - len_p]] -= 1
+            if window == count_p:
+                res.append(i - len_p + 1)
+        return res
